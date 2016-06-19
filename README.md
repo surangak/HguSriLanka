@@ -12,4 +12,6 @@ Steps to build
 5. In order to get the funcationality, use the following code at the beginning of the HTML form
 
           <script type="text/javascript" src="../../moduleResources/hgu/scripts/jspedigrees/jspedigrees.nocache.js"></script>
-          <script type="text/javascript" src="../..//moduleResources/hgu/scripts/jspedigrees-view/jspedigrees.nocache.js"></script> <style>
+          <script type="text/javascript" src="../..//moduleResources/hgu/scripts/jspedigrees-view/jspedigrees.nocache.js"></script> 
+          
+6. You can look at how the jspedigree has been loaded in to the html form when you look at the "html_form.html" file. There you will come across a sction within an id named pedigree. That is the part which generates the drawing tool.
