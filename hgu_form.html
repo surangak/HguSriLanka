@@ -13,7 +13,9 @@
   -->
  
 <htmlform formUuid="a000cb34-9ec1-4344-a1c8-f692232f6edd" formName="Vitals" formEncounterType="67a71486-1a54-468f-ac3e-7091a9a79584" formVersion="1.0">
-    <style>
+
+<script type="text/javascript" src="../../moduleResources/hgu/scripts/jspedigrees/jspedigrees.nocache.js"></script>
+          <script type="text/javascript" src="../..//moduleResources/hgu/scripts/jspedigrees-view/jspedigrees.nocache.js"></script> <style>
         #calculated-bmi {
             font-weight: bold;
             font-size: 1.4em;
@@ -23,12 +25,15 @@
             font-size: 1em;
             font-weight: normal;
         }
+#clinicians_name > input{
+width:200px;
+}
     </style>
- 
+
     <!-- only show BMI if patient is more than 5 years old (on the encounterDate) -->
     <includeIf velocityTest="$patient.getAge($encounter.getEncounterDatetime()) > 5">
- 
-        <script type="text/javascript">
+         <script  type="text/javascript">var ctx = "${pageContext.request.contextPath}"</script>
+         <script type="text/javascript">
             var calculateBmi = function(wt, ht) {
                 var bmi = null
                 if (wt &amp;&amp; ht) {
@@ -236,16 +241,7 @@
         </fieldset>
    
 </section>
-  
-<section id="scanned_documents_section" sectionTag="section" headerStyle="title" headerCode="Scanned Documents">
-
-   
- <tr>
-<td>Upload:</td>
-<td><obs conceptId="162829"/></td>
-    </tr>
-  </section>
-  
+ 
 <section id="samples_section" sectionTag="section" headerStyle="title" headerCode="Samples">
 
  <fieldset>
@@ -253,7 +249,7 @@
             <h3>Samples</h3>         
             <p class="left">
                  <h4>Report is Ready</h4>
-                <obs conceptId="CIEL:5090" labelText="" answers="0,1" answerLabels="Yes,No" style="radio"/>
+                <obs conceptId="CIEL:5090" labelText="Education" answers="0,6,8" answerLabels="None,1-6,7-8" style="radio"/>
                  <h4>Patient informed</h4>
                <obs conceptId="CIEL:5090" labelText="" answers="0,1" answerLabels="Yes,No" style="radio"/>
                 <h4>Report has been issued to the patient</h4>                 
@@ -279,6 +275,17 @@
                 <obs conceptId="CIEL:5090" id="Counselling Notes"/>
             </p>
         </fieldset>
+ </section>
+<section id="pedigree" sectionTag="section" headerStyle="title" headerCode="Pedigree Drawing">
+
+ <fieldset>
+       <legend>Pedigree Drawing Tool</legend>
+      <table>
+      <tr><td ><b>5.0 Family History</b> </td><td></td></tr>
+       <tr><td>5.2 Pedigree chart (Please draw a 3 generation pedigree and indicate affected members if known)</td><td></td></tr>
+       <tr><td colspan="2"  id="jsPedigreesContainer" height="600px" width="200px"></td></tr>
+       </table>
+</fieldset>
  </section>
 
  <submit/>
