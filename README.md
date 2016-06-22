@@ -16,18 +16,3 @@ Steps to build
           
 6. You can look at how the jspedigree has been loaded in to the html form when you look at the "html_form.html" file. There you will come across a sction within an id named pedigree. That is the part which generates the drawing tool.
 
-<section id="samples_section" sectionTag="section" headerStyle="title" headerCode="Samples">
-
- <fieldset>
-            <legend>Samples</legend>
-            <h3>Samples</h3>         
-            <p class="left">
-                 <h4>Report is Ready</h4>
-                 <obs conceptId="CIEL:5090" labelText="" answers="0,1" answerLabels="Yes,No" style="radio"/>
-               <h4>Patient informed</h4>
-               <obs conceptId="CIEL:5090" labelText="" answers="0,1" answerLabels="Yes,No" style="radio"/>
-                <h4>Report has been issued to the patient</h4>                 
-                 <obs conceptId="CIEL:5090" labelText="" answers="0,1" answerLabels="Yes,No" style="radio"/>
-          </p>
-        </fieldset>
-</section>
