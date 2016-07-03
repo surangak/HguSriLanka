@@ -13,8 +13,8 @@
  */
 
 body, table td, select, button {
-  /* font-family: Arial Unicode MS, Arial, sans-serif; */
-  /* font-size: small; */
+  font-family: Arial Unicode MS, Arial, sans-serif;
+  font-size: small;
 }
 pre {
   font-family: "courier new", courier;
@@ -22,7 +22,7 @@ pre {
 }
 body {
   color: black;
-  margin: 10px auto; /* fix center alignment issue */363)
+  margin: 10px;
   border: 0px;
   padding: 0px;
   background: #fff;
@@ -359,12 +359,6 @@ select {
 }
 .gwt-MenuBarPopup {
   margin: 0px 0px 0px 3px;
-  
-}
-.gwt-MenuBarPopup table td, table tr{
-  padding: 0px;
-  border: none;
-  
 }
 .gwt-MenuBarPopup .menuPopupTopCenter {
   background: url(images/hborder.png) 0px -12px repeat-x;
@@ -453,10 +447,7 @@ select {
   padding: 3px;
   background: white;
 }
-.gwt-PopupPanel table td {
-	padding: 0px;
-	border: none;
-}
+
 .gwt-DecoratedPopupPanel .popupContent {
 }
 .gwt-DecoratedPopupPanel .popupMiddleCenter {
