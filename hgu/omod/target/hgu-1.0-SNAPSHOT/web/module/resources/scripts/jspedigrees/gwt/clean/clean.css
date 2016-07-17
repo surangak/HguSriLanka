@@ -13,8 +13,8 @@
  */
 
 body, table td, select, button {
-  font-family: Arial Unicode MS, Arial, sans-serif;
-  font-size: small;
+ /* font-family: Arial Unicode MS, Arial, sans-serif;
+  font-size: small;*/
 }
 pre {
   font-family: "courier new", courier;
@@ -22,7 +22,7 @@ pre {
 }
 body {
   color: black;
-  margin: 10px;
+  /*margin: 10px;*/
   border: 0px;
   padding: 0px;
   background: #fff;
@@ -1265,3 +1265,13 @@ td.datePickerYear {
   background: #e7e7e7 url(images/thumb_horz.png) center center no-repeat;
   cursor: row-resize;
 }
+
+.gwt-MenuBarPopup table td, table tr{
+  padding: 0px;
+  border: none;
+ }
+
+ .gwt-PopupPanel table td {
+   padding: 0px;
+   border: none;
+ } 
