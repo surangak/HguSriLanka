@@ -12,10 +12,29 @@
   ~ Copyright (C) OpenMRS, LLC.  All Rights Reserved.
   -->
  
-<htmlform formUuid="a000cb34-9ec1-4344-a1c8-f692232f6edd" formName="Vitals" formEncounterType="67a71486-1a54-468f-ac3e-7091a9a79584" formVersion="1.0">
+<htmlform formUuid="a000cb34-9ec1-4344-a1c8-f692232f6edd" formName="hgu" formEncounterType="67a71486-1a54-468f-ac3e-7091a9a79584" formVersion="1.0">
 
+<script>
+
+window.pedexIsReady = function() {
+console.log("Js Pedigree is ready");
+
+var v = getValue("XML.value");
+window.setStateXML(window.atob(v));
+
+jQuery(function() {
+       $('pedigree').visible()
+      {
+       window.alert("akshika");
+}
+   
+
+});
+}
+
+</script>
 <script type="text/javascript" src="../../moduleResources/hgu/scripts/jspedigrees/jspedigrees.nocache.js"></script>
-          <script type="text/javascript" src="../..//moduleResources/hgu/scripts/jspedigrees-view/jspedigrees.nocache.js"></script> <style>
+          <script type="text/javascript" src="../../moduleResources/hgu/scripts/jspedigrees-view/jspedigrees.nocache.js"></script> <style>
         #calculated-bmi {
             font-weight: bold;
             font-size: 1.4em;
@@ -29,98 +48,6 @@
 width:200px;
 }
     </style>
-
-    <!-- only show BMI if patient is more than 5 years old (on the encounterDate) -->
-    <includeIf velocityTest="$patient.getAge($encounter.getEncounterDatetime()) > 5">
-         <script  type="text/javascript">var ctx = "${pageContext.request.contextPath}"</script>
-         <script type="text/javascript">
-            var calculateBmi = function(wt, ht) {
-                var bmi = null
-                if (wt &amp;&amp; ht) {
-                    bmi = wt / ((ht/100) * (ht/100));
-                }
-                return bmi ;
-            }
-        </script>
- 
-        <ifMode mode="ENTER">
-            <script type="text/javascript">
- 
-                // functions to handle updating the bmi when in ENTER mode
-                var updateBmi = function() {
-                    var wt = htmlForm.getValueIfLegal('weight.value');
-                    var ht = htmlForm.getValueIfLegal('height.value');
- 
-                    var bmi = calculateBmi(wt, ht);
- 
-                    if (bmi == null || isNaN(bmi)) {
-                        jq('#calculated-bmi-wrapper').hide();
-                    } else {
-                        jq('#no-calculated-bmi').hide();
-                        jq('#calculated-bmi-wrapper').show();
-                        jq('#calculated-bmi').html(bmi.toFixed(1));
-                        jq('#hidden-calculated-bmi').val(bmi.toFixed(1));
-                    }
-                };
- 
-                jq(function() {
-                    jq('#calculated-bmi-wrapper').hide();
- 
-                    getField('weight.value').change(updateBmi)
-                    getField('height.value').change(updateBmi);
- 
-                    updateBmi();
-                });
-               
-                jq(function() {
-                    jq('#bp_systolic input[type=text]').attr('min', '50');
-                });
-               
-                jq(function() {
-                    jq('#bp_diastolic input[type=text]').attr('min', '30');
-                });
-            </script>
-        </ifMode>
- 
-        <script>
-            // set the blood pressure fields as "expected"
-            jq(function() {
-                jq('#bp_systolic > input').addClass('expected');
-                jq('#bp_diastolic > input').addClass('expected');
-            });
-        </script>
- 
-        <ifMode mode="VIEW">
-            <script type="text/javascript">
- 
-                // handle displaying the bmi when in VIEW mode
-                jq(function() {
- 
-                    // we have to iterate through in case there are multiple vitals forms
-                    // displayed on a single page
- 
-                    jq('htmlform').each(function(index, form) {
-                        jq(form).find('#calculated-bmi-continue').hide();
-                        jq(form).find('#no-calculated-bmi').hide();
- 
-                        var wt = jq(form).find('#weight').find('.value').text();
-                        var ht = jq(form).find('#height').find('.value').text();
- 
-                        var bmi = calculateBmi(wt, ht);
- 
-                        if (bmi != null &amp;&amp; !isNaN(bmi)) {
-                            jq(form).find('#calculated-bmi-wrapper').show();
-                            jq(form).find('#calculated-bmi').html(bmi.toFixed(1));
-                            jq(form).find('#hidden-calculated-bmi').val(bmi.toFixed(1));
-                        }
-                    });
- 
-                });
- 
-            </script>
-        </ifMode>
- 
-    </includeIf>
  
     <div class="hidden" id="encounter-details" sectionTag="section" headerStyle="title" headerLabel="Encounter Details">
         <fieldset>
@@ -148,7 +75,7 @@ width:200px;
     <section id="provider_section" sectionTag="section" headerStyle="title" headerCode="Provider">
    
         <fieldset>
-   <legend>provider</legend>
+         <legend>provider</legend>
             <h3>provider</h3>
  
             <p class="left">
@@ -161,7 +88,7 @@ width:200px;
     </section>
    
    
-    <section id="refereed_by_section" sectionTag="section" headerStyle="title" headerCode="Refereed bye">
+    <section id="refereed_by_section" sectionTag="section" headerStyle="title" headerCode="Refereed by">
    
         <fieldset>
             <legend>Clinicians Name</legend>
@@ -202,10 +129,7 @@ width:200px;
         </fieldset>        
     </section>
    
-  <section id="family_tree_section" sectionTag="section" headerStyle="title" headerCode="Family Tree">
-  </section>
-  
-<section id="clinicians_notes_section" sectionTag="section" headerStyle="title" headerCode="Clinicians Notes">
+ <section id="clinicians_notes_section" sectionTag="section" headerStyle="title" headerCode="Clinicians Notes">
 
  <fieldset>
             <legend>Clinicians Note</legend>
@@ -276,9 +200,15 @@ width:200px;
             </p>
         </fieldset>
  </section>
+
+<div style="display: none;">
+<obs conceptId="162826" id="XML"/>
+</div>
+
+<div id ="ped">
 <section id="pedigree" sectionTag="section" headerStyle="title" headerCode="Pedigree Drawing">
 
- <fieldset>
+ <fieldset id="pedigree">
        <legend>Pedigree Drawing Tool</legend>
       <table>
       <tr><td ><b>5.0 Family History</b> </td><td></td></tr>
@@ -286,8 +216,22 @@ width:200px;
        <tr><td colspan="2"  id="jsPedigreesContainer" height="600px" width="200px"></td></tr>
        </table>
 </fieldset>
+
  </section>
 
+</div>
+
+<script type="text/javascript">
+beforeValidation.push(function() {
+var val = window.getStateXML();
+val = window.btoa(val);
+setValue("XML.value",val);
+    if (val == null || val == '') {
+          return false;
+    }
+    return true;
+});
+</script>
  <submit/>
  
 </htmlform>
