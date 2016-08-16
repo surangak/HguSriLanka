@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: org.openmrs.module.hgu.api.hguServiceTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.567 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.413 sec
