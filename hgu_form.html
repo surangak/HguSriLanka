@@ -34,7 +34,10 @@ jQuery(function() {
 
 </script>
 <script type="text/javascript" src="../../moduleResources/hgu/scripts/jspedigrees/jspedigrees.nocache.js"></script>
-          <script type="text/javascript" src="../../moduleResources/hgu/scripts/jspedigrees-view/jspedigrees.nocache.js"></script> <style>
+          <script type="text/javascript" src="../../moduleResources/hgu/scripts/jspedigrees-view/jspedigrees.nocache.js"></script> 
+          <script type="text/javascript" src="../../moduleResources/hgu/scripts/jquery.form.js"></script> 
+
+<style>
         #calculated-bmi {
             font-weight: bold;
             font-size: 1.4em;
@@ -79,7 +82,7 @@ width:200px;
             <h3>provider</h3>
  
             <p class="left">
-                <obs conceptId="CIEL:5090" id="provider" />
+                <obs conceptId="163142" id="provider" />
             </p>
  
         </fieldset>
@@ -94,7 +97,7 @@ width:200px;
             <legend>Clinicians Name</legend>
             <h3>Clinicians Name</h3>         
             <p class="left">
-                <obs conceptId="CIEL:5090" id="clinicians_name"/>
+                <obs conceptId="163142" id="clinicians_name"/>
             </p>
         </fieldset>
 
@@ -102,7 +105,7 @@ width:200px;
             <legend>Specialty</legend>
             <h3>Specialty</h3>         
             <p class="left">
-                <obs conceptId="CIEL:5090" id="specialty"/>
+                <obs conceptId="163142" id="specialty"/>
             </p>
         </fieldset>
 
@@ -110,21 +113,21 @@ width:200px;
             <legend>Station</legend>
             <h3>Station</h3>         
             <p class="left">
-                <obs conceptId="CIEL:5090" id="station"/>
+                <obs conceptId="163142" id="station"/>
             </p>
         </fieldset>
        <fieldset>
             <legend>Contact Number</legend>
             <h3>Contact Number</h3>         
             <p class="left">
-                <obs conceptId="CIEL:5090" id="contact_number"/>
+                <obs conceptId="163142" id="contact_number"/>
             </p>
         </fieldset>
        <fieldset>
             <legend>Indication</legend>
             <h3>Indication</h3>         
             <p class="left">
-                <obs conceptId="CIEL:5090" id="indication"/>
+                <obs conceptId="163142" id="indication"/>
             </p>
         </fieldset>        
     </section>
@@ -135,7 +138,7 @@ width:200px;
             <legend>Clinicians Note</legend>
             <h3>Clinicians Note</h3>         
             <p class="left">
-                <obs conceptId="CIEL:5090" id="clinicians_notes"/>
+                <obs conceptId="163142" id="clinicians_notes"/>
             </p>
         </fieldset>
 
@@ -147,7 +150,7 @@ width:200px;
             <legend>Counselling Notes</legend>
             <h3>Counselling Notes</h3>         
             <p class="left">
-                <obs conceptId="CIEL:5090" id="Counselling Notes"/>
+                <obs conceptId="163142" id="Counselling Notes"/>
             </p>
         </fieldset>
 
@@ -156,11 +159,13 @@ width:200px;
             <legend>Tests</legend>
             <h3>Tests</h3>         
             <p class="left">
-               <obs conceptId="CIEL:5090"  labelText="Tests" answers="0,1,2" answerLabels="Test1,Test2,Test3" style="dropdown"/>
+               <obs conceptId="163142"  labelText="Tests" answers="0,1,2" answerLabels="Test1,Test2,Test3" style="dropdown"/>
                
                <!-- 
               Should add the feature to add multiple tests
                -->
+
+
             </p>
         </fieldset>
    
@@ -173,12 +178,11 @@ width:200px;
             <h3>Samples</h3>         
             <p class="left">
                  <h4>Report is Ready</h4>
-                <obs conceptId="CIEL:5090" labelText="Education" answers="0,6,8" answerLabels="None,1-6,7-8" style="radio"/>
+               <obs conceptId="163142" labelText="" answers="0,1" answerLabels="Yes,No" style="radio" answerSeparator="" />
                  <h4>Patient informed</h4>
-               <obs conceptId="CIEL:5090" labelText="" answers="0,1" answerLabels="Yes,No" style="radio"/>
+               <obs conceptId="163142" labelText="" answers="0,1" answerLabels="Yes,No" style="radio" answerSeparator="" />
                 <h4>Report has been issued to the patient</h4>                 
-                 <obs conceptId="CIEL:5090" labelText="" answers="0,1" answerLabels="Yes,No" style="radio"/>
-          </p>
+               <obs conceptId="163142" labelText="" answers="0,1" answerLabels="Yes,No" style="radio" answerSeparator="" /> </p>
         </fieldset>
 
  </section>
@@ -196,13 +200,13 @@ width:200px;
             <legend>Counselling Notes</legend>
             <h3>Counselling Notes</h3>         
             <p class="left">
-                <obs conceptId="CIEL:5090" id="Counselling Notes"/>
+                <obs conceptId="163142" id="Counselling Notes"/>
             </p>
         </fieldset>
  </section>
 
 <div style="display: none;">
-<obs conceptId="162826" id="XML"/>
+<obs conceptId="163141" id="XML"/>
 </div>
 
 <div id ="ped">
