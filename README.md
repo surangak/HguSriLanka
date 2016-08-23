@@ -16,3 +16,4 @@ Steps to build
           
 6. You can look at how the jspedigree has been loaded in to the html form when you look at the "html_form.html" file. There you will come across a sction within an id named pedigree. That is the part which generates the drawing tool.
 
+Wiki Page : https://wiki.openmrs.org/display/~akshika47/Human+Genetics+Unit+Module
